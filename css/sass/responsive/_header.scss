@@ -1,0 +1,31 @@
+/**
+Siren Framework v2.0
+File Name: Header For Tablet or Greater
+File Purpose: Classes for the header and footer elements
+File Notes: 
+*/
+
+@media only screen and (min-width: 700px)  {
+	//Site Title
+	.title-main{
+		float: left;
+	}
+
+	//Nav Start
+	.nav-menu{
+		margin-top: 3px;
+		max-height: 100%;
+		text-align: right;
+	}
+
+	.menu-item{
+		@include simple-inline-block;	
+		a{
+			padding: 1em;
+		}
+	}
+
+	.nav-main_button{
+		display: none;
+	}
+}

@@ -1,0 +1,76 @@
+/**
+Siren Framework v2.0
+File Name: Header and Footer
+File Purpose: Classes for the header and footer elements
+File Notes: 
+*/
+
+//Main Header
+.header-main{
+	text-align: center;
+	background: $color1;
+	color: $color2;
+	@include trailer;
+	padding: 1em;
+	overflow: hidden;
+}
+
+//Site Title
+.title-main_logo{
+	margin: 0;
+}
+
+//Nav Start
+.nav-menu{
+	max-height: 0px;
+  	margin: 0;
+  	padding: 0;
+  	overflow: hidden;
+	@include transition(.5s);
+
+	  &.active{
+	  	max-height: 999px;
+	}
+}
+
+.menu-item{
+	list-style: none;
+
+	a{
+		color: $color2;
+		padding: 10px 0;
+		display: block;
+
+		&:hover{
+			color: $color3;
+		}
+	}
+}
+
+.nav-main_button{
+	color: $color1;
+	background: $color2;
+	width: 100%;
+	margin: 10px 0 0;
+	padding: 10px 0;
+	display: block;
+}
+
+//Nav End
+
+
+
+//Footer
+.footer-main{
+	text-align: center;
+	background: $color1;
+	color: $color2;
+	@include leader;
+	padding: 1em;
+}
+
+.footer-main_content{
+	max-width: 100%;
+	margin: 0;
+}
+
