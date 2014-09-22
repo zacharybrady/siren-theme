@@ -2,13 +2,13 @@
 
 Siren Framework v3.3
 
-File Name: Enhanced Styles
+File Name: Enhanced Styles for Internet Explorer
 
-File Purpose: Collect the advanced styles
+File Purpose: Collect the advanced styles for IE8 and IE7 Fallback
 
 File Notes: 
-	- This is built from mobile Up
-	- All the initial style are for mobile views and everything else is brought in through media-queries
+	- Does not include Media-Queries pertaining to browser size
+	- All mediaqueries provided by Respond.js and so that is a dependency for this file
 
 
 *********/
@@ -494,61 +494,6 @@ File Notes:
     width: 33.33333%;
   }
 }
-/*-------------------------*\
-  #Responsive
-\*-------------------------*/
-/********
-
-Siren Framework v3.3
-
-File Name: Header and Footer For Tablet or Greater
-
-File Purpose: Classes for the header and footer elements
-
-File Notes: 
-
-*********/
-@media only screen and (min-width: 700px) {
-  /*-------------------------*\
-    #Header
-  \*-------------------------*/
-  .title {
-    float: left;
-  }
-
-  /*-------------------------*\
-    #Navigation
-  \*-------------------------*/
-  .siteNav {
-    margin-top: 3px;
-    max-height: 100%;
-    text-align: right;
-  }
-
-  .menu-item {
-    display: inline;
-    display: inline-block;
-  }
-  .menu-item a {
-    padding: 1em;
-  }
-
-  .siteNav_button {
-    display: none;
-  }
-}
-/********
-
-Siren Framework v3.3
-
-File Name: Responsive
-
-File Purpose: Media query calls go here
-
-File Notes: 
-
-
-*********/
 /*-------------------------*\
   #Misc
 \*-------------------------*/

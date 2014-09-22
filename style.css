@@ -1,15 +1,61 @@
-/*File Notes: This file is to be called seperate to be safe for older browsers and devices
+/********
 
-*/
-/**
-Siren Framework v2.0
-File Name: Mixins
-File Purpose: This file contains mixins
+Siren Framework v3.3
+
+File Name: Base Styles
+
+File Purpose: For the basic/safe styles
+
 File Notes: 
-Yeah yeah, I know. I took a lot of these from Chris Coyier
-*/
-/*File Notes: 
-*/
+	- This file is to be called seperate to be safe for older browsers and devices
+
+
+*********/
+/*-------------------------*\
+  #Mixins-Variables
+\*-------------------------*/
+/********
+
+Siren Framework v3.3
+
+File Name: Mixins
+
+File Purpose: This file contains mixins
+
+File Notes: 
+  - Yeah yeah, I know. I took a lot of these from Chris Coyier
+
+*********/
+/*-------------------------*\
+  #Cross-Browser
+\*-------------------------*/
+/*-------------------------*\
+  #Layout
+\*-------------------------*/
+/*-------------------------*\
+  #Typographic
+\*-------------------------*/
+/*-------------------------*\
+  #Skin
+\*-------------------------*/
+/********
+
+Siren Framework v3.3
+
+File Name: Variables Needed for the Safe View
+
+File Purpose: For the basic/safe styles
+
+File Notes: 
+
+
+*********/
+/*-------------------------*\
+  #Colors
+\*-------------------------*/
+/*-------------------------*\
+  #Fonts
+\*-------------------------*/
 html {
   font-family: "proxima-nova", "Arial", sans-serif;
   font-style: normal;
@@ -22,12 +68,24 @@ h1, h2, h3, h4 {
   font-weight: 700;
 }
 
-/**
-Siren Framework v2.5
+/*-------------------------*\
+  #Core
+\*-------------------------*/
+/********
+
+Siren Framework v3.3
+
 File Name: Core Styles
+
 File Purpose: Basic styling served to all browsers
-File Notes: Based on: normalize.css v3.0.1 | MIT License | git.io/normalize
-*/
+
+File Notes: 
+  - Based on: normalize.css v3.0.1 | MIT License | git.io/normalize
+
+*********/
+/*-------------------------*\
+  #Document-Level
+\*-------------------------*/
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -37,7 +95,9 @@ body {
   margin: 1em;
 }
 
-/*Give HTML5 Elements the right display value*/
+/*-------------------------*\
+  #HTML5
+\*-------------------------*/
 article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
   display: block;
 }
@@ -56,7 +116,9 @@ audio:not([controls]) {
   display: none;
 }
 
-/* Links */
+/*-------------------------*\
+  #Links
+\*-------------------------*/
 a {
   background: transparent;
 }
@@ -67,7 +129,9 @@ a img {
   border: none;
 }
 
-/* Headline Elements */
+/*-------------------------*\
+  #Headers
+\*-------------------------*/
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -77,7 +141,9 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
 }
 
-/* Text-level semantics */
+/*-------------------------*\
+  #Inline-Content
+\*-------------------------*/
 b, strong {
   font-weight: bold;
 }
@@ -99,7 +165,9 @@ small {
   font-size: 80%;
 }
 
-/*Grouping content*/
+/*-------------------------*\
+  #Grouping-Content
+\*-------------------------*/
 figure {
   margin: 1em 40px;
 }
@@ -132,7 +200,9 @@ q:before, q:after, blockquote:before, blockquote:after {
   content: none;
 }
 
-/* Forms */
+/*-------------------------*\
+  #Forms
+\*-------------------------*/
 button, input, optgroup, select, textarea {
   color: inherit;
   font: inherit;
@@ -192,7 +262,9 @@ optgroup {
   font-weight: bold;
 }
 
-/* Tables */
+/*-------------------------*\
+  #Tables
+\*-------------------------*/
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -202,7 +274,17 @@ td, th {
   padding: 0;
 }
 
-/*File Notes: */
+/********
+
+Siren Framework v3.3
+
+File Name: Wordpress Generated Classes
+
+File Purpose: Classes created by Wordpress
+
+File Notes: 
+
+*********/
 .alignnone {
   margin: 5px 20px 20px 0;
 }
@@ -252,13 +334,24 @@ div.aligncenter {
   padding: 0 4px 5px;
 }
 
-/**
-Siren Framework v2.5
+/*-------------------------*\
+  #Custom
+\*-------------------------*/
+/********
+
+Siren Framework v3.3
+
 File Name: Custom Safe
+
 File Purpose: Custom safe styles not part of the normalization
+
 File Notes: 
-*/
-/* Fixes Between Advanced and Basic*/
+
+
+*********/
+/*-------------------------*\
+  #Fixes-Between-Versions
+\*-------------------------*/
 .nav-main_button {
   display: none;
 }

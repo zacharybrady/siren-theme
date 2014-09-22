@@ -23,6 +23,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
@@ -33,22 +34,22 @@
 <body <?php body_class(); ?>>
 	
 <!-- main-header -->
-<header class="header-main" role="banner">
+<header class="header" role="banner">
 
 	<!-- main-title -->
-	<div class="title-main">
-		<h1 class="title-main_logo">	
-			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="title-main_link">
-				<img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" class="title-main_image" />
+	<div class="title">
+		<h1 class="title_logo">	
+			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="title_link">
+				<img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" class="title_image" />
 			</a>
 		</h1>
 	</div>
 		
-	<nav class="nav-main" role="navigation">
+	<nav class="siteNav" role="navigation">
 		<a href="#navMenu" class="nav-main_button" id="navBtn" >MENU</a>
 		<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'menu_id' => 'navMenu') ); ?>
 	</nav>
 
 </header>
 
-<div class="page-container">
+<div class="page_container">

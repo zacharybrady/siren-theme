@@ -122,7 +122,6 @@ function inline_head() {
 	<!--[if lt IE 9]>
 	    <script>
 	        <?php require_once(  'js/polyfills/html5.js'); ?>
-	        <?php require_once( 'js/polyfills/respond.js'); ?>
 	    </script>
     <![endif]-->
 
@@ -131,10 +130,16 @@ function inline_head() {
     </style>
 
     <!--[if (gt IE 6) & (lte IE 8)]>
-		<link rel="stylesheet" href="css/enhanced.css" type="text/css" />
+		<link rel="stylesheet" href="css/enhanced-ie.css" type="text/css" />
 	<![endif]-->
 
 	<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/enhanced.css" type="text/css" media="only all" />
+
+	<!--[if (gt IE 6) & (lte IE 8)]>
+	    <script>
+	        <?php require_once( 'js/polyfills/respond.js'); ?>
+	    </script>
+    <![endif]-->
 
 <?php
 }

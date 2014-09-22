@@ -12,9 +12,9 @@
 
 </div>
 
-<footer id="colophon" class="footer-main" role="contentinfo">
+<footer id="colophon" class="footer" role="contentinfo">
 
-	<div class="footer-main_content">
+	<div class="footer_content">
 		<?php do_action( 'siren_credits' ); ?>
 		<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'siren' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'siren' ); ?>"><?php printf( __( 'Proudly powered by %s', 'siren' ), 'WordPress' ); ?></a>
 	</div>
