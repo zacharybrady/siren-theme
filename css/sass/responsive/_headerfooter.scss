@@ -1,0 +1,51 @@
+/********
+
+Siren Framework v3.3
+
+File Name: Responsive for the Header and Footer
+
+File Purpose: Media query calls go here for the header and footer
+
+File Notes: 
+
+
+*********/
+
+
+@media only screen and (min-width: 700px)  {
+	
+
+	/*-------------------------*\
+	  #Header
+	\*-------------------------*/
+
+	.title{
+		float: left;
+	}
+
+	
+
+
+	/*-------------------------*\
+	  #Navigation
+	\*-------------------------*/
+
+	.navPrimary{
+		margin-top: 3px;
+		max-height: 100%;
+		text-align: right;
+	}
+
+	.page_item{
+		@include simple-inline-block;	
+
+		a{
+			padding: 1em;
+		}
+	}
+
+	.navPrimary_button{
+		display: none;
+	}
+
+}

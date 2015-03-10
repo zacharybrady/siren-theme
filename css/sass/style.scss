@@ -1,16 +1,26 @@
+/*!
+Theme Name: Siren 2014
+Theme URI: http://suits-sandals.com
+Description: The work horse framework for Suits & Sandals
+Author: suits&sandals
+Author URI: http://suits-sandals.com
+Version: 3.5
+Tags: Boilerplate
+
+License:
+License URI:
+
+*/
+
 /********
 
-Siren Framework v3.3
-
-File Name: Base Styles
-
-File Purpose: For the basic/safe styles
-
 File Notes: 
-	- This file is to be called seperate to be safe for older browsers and devices
+	- This is built from mobile Up
+	- All the initial style are for mobile views and everything else is brought in through media-queries
 
 
 *********/
+
 
 /*-------------------------*\
   #Mixins-Variables
@@ -20,24 +30,74 @@ File Notes:
 @import "compass/css3";
 @import "modular-scale";
 @import "mixins/mixins"; 
-@import "variables/safe-variables"; 
-
+@import "variables/variables"; 
 
 
 
 
 /*-------------------------*\
-  #Core
+  #Basic
 \*-------------------------*/
-
-@import "basic/core";
+@import "basic/foundation";
+@import "basic/forms";
 @import "basic/wordpress";
+@import "basic/safe-custom";
+
+
+
+/*-------------------------*\
+  #Enhanced
+\*-------------------------*/
+@media only all {
+
+	/*-------------------------*\
+	  #Core-Enhanced
+	\*-------------------------*/
+
+	@import "base-enhanced/foundation"; 
+	@import "base-enhanced/forms";
+	@import "base-enhanced/wordpress";
+
+
+
+
+
+	/*-------------------------*\
+	  #Objects-Enhanced
+	\*-------------------------*/
+
+	@import "objects/headerfooter"; // Header and Footer Styling
+
+
+
+
+
+	/*-------------------------*\
+	  #Layout-Enhanced
+	\*-------------------------*/
+
+	@import "layout/grid";
+	@import "layout/helpers";
+
+}
+
 
 
 
 
 /*-------------------------*\
-  #Custom
+  #Responsive
+\*-------------------------*/
+@import "responsive/layout";
+@import "responsive/headerfooter";
+
+
+
+
+
+/*-------------------------*\
+  #Misc
 \*-------------------------*/
 
-@import "basic/safe-custom";
+@import "misc/print"; //Print Styles
+

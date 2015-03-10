@@ -10,15 +10,15 @@ module.exports = function(grunt) {
         livereload: true,
       },
       scripts: {
-        files: ['js/jsSrc/*.js','js/jsSrc/build/*.js'],
+        files: ['js/jsSrc/*.js','js/jsSrc/*/*.js'],
         tasks: ['jshint', 'uglify', 'yuidoc'],
         options: {
           spawn: false
         }
       },
-      css: {
+      scss: {
         files: ['css/sass/*.scss','css/sass/*/*.scss'],
-       tasks: ['compass'],
+       tasks: ['compass', 'combine_mq', 'criticalcss', 'cssmin'],
         options: {
           spawn: false,
         }
@@ -26,13 +26,6 @@ module.exports = function(grunt) {
       images: {
         files: ['images/imagesSrc/*.{png,jpg,gif}'],
         tasks: ['imagemin'],
-        options: {
-          spawn: false,
-        }
-      },
-      imagesRes: {
-        files: ['images/imagesResSrc/*.{png,jpg,gif}'],
-        tasks: ['imagemin','responsive_images'],
         options: {
           spawn: false,
         }
@@ -48,8 +41,9 @@ module.exports = function(grunt) {
     uglify: {
       dist:{
         files:{
-          'js/global.min.js' : ['js/jsSrc/polyfills/classlist.js','js/jsSrc/functions.js', 'js/jsSrc/global.js'],
-          'js/enhance.js' : 'js/jsSrc/enhance.js'
+          'js/global.min.js' : ['js/jsSrc/libs/jquery.js', 'js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/global.js'],
+          'js/loadcss.js' : ['js/jsSrc/loading/cookie.js', 'js/jsSrc/loading/loadcss.js'],
+          'js/loadjs.js' : 'js/jsSrc/loading/loadjs.js'
 
         }
       }
@@ -67,6 +61,72 @@ module.exports = function(grunt) {
       }
     },
 
+    //Critical CSS
+    criticalcss: {
+
+      //Set up a critical CSS file for each major template type
+
+      //Home
+      homePage: {
+        options: {
+          url: "http://localhost:8888/siren-wordpress/",
+          outputfile: "css/critical/raw/critical-home.css",
+          filename: "style.css"
+        }
+      },
+
+      //Archives - index, taxonomies, archives, etc.
+      archives: {
+        options: {
+          url: "http://localhost:8888/siren-wordpress/news/",
+          outputfile: "css/critical/raw/critical-archives.css",
+          filename: "style.css"
+        }
+      },
+
+      //Post
+      post: {
+        options: {
+          url: "http://localhost:8888/siren-wordpress/news/",
+          outputfile: "css/critical/raw/critical-post.css",
+          filename: "style.css"
+        }
+      },
+
+      //Page
+      page: {
+        options: {
+          url: "http://localhost:8888/siren-wordpress/store/",
+          outputfile: "css/critical/raw/critical-page.css",
+          filename: "style.css"
+        }
+      }
+
+    },
+
+    //CSS Min
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'css/critical/raw',
+          src: ['*.css'],
+          dest: 'css/critical'
+        }]
+      }
+    },
+
+    //Combine Media Queries
+    combine_mq: {
+      options: {
+        beautify: false
+      },
+      main: {
+        src: 'style.css',
+        dest: 'style.css'
+      }
+    },
+
     //Image Optimization
     imagemin: {  
       standard: {                  
@@ -75,37 +135,6 @@ module.exports = function(grunt) {
           src: ['**/*.{png,jpg,gif}'],
           cwd: 'images/imagesSrc',
           dest: 'images/'   
-        }]
-      },
-      responsive: {                  
-        files: [{
-          expand: true,    
-          src: ['imagesResSrc/*.{png,jpg,gif}'],
-          cwd: 'images/',
-          dest: 'images/'   
-        }]
-      }
-    },
-
-    //Create Images for Responsive Images
-    //Configure size feature per project
-    responsive_images: {
-      dev: {
-        sizes: [{
-          name: 'small',
-          width: 320
-        },{
-          name: 'medium',
-          width: 640
-        },{
-          name: "large",
-          width: 1024
-        }],
-        files: [{
-          expand: true,
-          src: ['**/*.{png,jpg,gif}'],  
-          cwd: 'images/imagesResSrc',
-          dest: 'images/'
         }]
       }
     },
@@ -122,16 +151,6 @@ module.exports = function(grunt) {
                 outdir: 'docs/docs-js/'
             }
         }
-    },
-
-    //PHP Documentation
-    phpdocumentor: {
-        dist: {
-            options: {
-                directory : './',
-                target : 'docs/docs-php'
-            }
-        }
     }
 
     
@@ -143,11 +162,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass'); //Compress Compass
   grunt.loadNpmTasks('grunt-contrib-jshint'); //JS Hint
   grunt.loadNpmTasks('grunt-contrib-imagemin'); //Image Optimization
-  grunt.loadNpmTasks('grunt-responsive-images'); //Responsive Image Creator; imageMagick should be installed on computer as well through homebrew
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
-  grunt.loadNpmTasks('grunt-phpdocumentor'); //PHP Documentation
+  grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
+  grunt.loadNpmTasks('grunt-contrib-cssmin'); //CSS Minification
+  grunt.loadNpmTasks('grunt-combine-mq'); //Combine Media Queries
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'compass', 'jshint','imagemin', 'responsive_images', 'yuidoc']);
+  grunt.registerTask('default', ['uglify', 'compass', 'combine_mq', 'jshint','imagemin', 'yuidoc', 'criticalcss']);
 
 };

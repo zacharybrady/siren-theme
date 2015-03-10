@@ -44,11 +44,13 @@
 			</a>
 		</h1>
 	</div>
-		
-	<nav class="siteNav" role="navigation">
-		<a href="#navMenu" class="nav-main_button" id="navBtn" >MENU</a>
-		<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'menu_id' => 'navMenu') ); ?>
-	</nav>
+	
+	<div class="navPrimary_container">
+		<a href="#navMenu" class="navPrimary_button" id="navBtn" >MENU</a>	
+		<nav class="navPrimary" role="navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'menu_id' => 'navMenu') ); ?>
+		</nav>
+	</div>
 
 </header>
 

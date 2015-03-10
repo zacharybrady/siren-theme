@@ -1,0 +1,93 @@
+/********
+
+Siren Framework v3.5
+
+File Name: Enhanced Wordpress Generated Classes
+
+File Purpose: Classes created by Wordpress for the Enhanced View
+
+File Notes: 
+
+*********/
+
+
+/*-------------------------*\
+  #Alignments
+\*-------------------------*/
+
+.aligncenter, div.aligncenter, .aligncenter {
+    display: block;
+}
+
+.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+
+
+
+
+
+/*-------------------------*\
+  #Captions
+\*-------------------------*/
+
+.wp-caption {
+    max-width: 96%; 
+}
+
+.wp-caption img {
+    height: auto;
+    width: auto;
+    max-width: 98.5%;
+}
+
+
+
+
+/*-------------------------*\
+  #Embeds
+\*-------------------------*/
+
+.ombed{
+    position: relative; 
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+
+    iframe, object, embed, video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

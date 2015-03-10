@@ -11,24 +11,25 @@ File Notes:
 *********/
 
 
+/*-------------------------*\
+  #Alignments
+\*-------------------------*/
+
 .alignnone {
     margin: 5px 20px 20px 0;
 }
 
-.aligncenter,
-div.aligncenter {
+.aligncenter, div.aligncenter {
     margin: 5px auto 5px auto;
 }
 
-.alignright {
-    float:right;
-    margin: 5px 0 20px 20px;
-}
 
-.alignleft {
-    float: left;
-    margin: 5px 20px 20px 0;
-}
+
+
+
+/*-------------------------*\
+  #Captions
+\*-------------------------*/
 
 .wp-caption {
     background: #fff;

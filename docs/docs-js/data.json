@@ -13,126 +13,34 @@
             "fors": {},
             "namespaces": {}
         },
-        "js/jsSrc/functions.js": {
-            "name": "js/jsSrc/functions.js",
-            "modules": {
-                "Siren-Core": 1
-            },
-            "classes": {
-                "browserSupport": 1,
-                "classManipulation": 1,
-                "styleManipulation": 1,
-                "assyncronous": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
         "js/jsSrc/global.js": {
             "name": "js/jsSrc/global.js",
             "modules": {
                 "Global": 1
             },
             "classes": {
-                "navigationUI": 1,
-                "callFunctions": 1
+                "navigationUI": 1
             },
             "fors": {},
             "namespaces": {}
         }
     },
     "modules": {
-        "Siren-Core": {
-            "name": "Siren-Core",
-            "submodules": {},
-            "classes": {
-                "browserSupport": 1,
-                "classManipulation": 1,
-                "styleManipulation": 1,
-                "assyncronous": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "js/jsSrc/functions.js",
-            "line": 131,
-            "description": "This file contains core functions used in the Siren Framework"
-        },
         "Global": {
             "name": "Global",
             "submodules": {},
             "classes": {
-                "navigationUI": 1,
-                "callFunctions": 1
+                "navigationUI": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
             "file": "js/jsSrc/global.js",
-            "line": 38,
+            "line": 6,
             "description": "This file contains the Global calls and custom functions of the project"
         }
     },
     "classes": {
-        "browserSupport": {
-            "name": "browserSupport",
-            "shortname": "browserSupport",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Siren-Core",
-            "namespace": "",
-            "file": "js/jsSrc/functions.js",
-            "line": 7,
-            "description": "Methods related to testing and addition browser support",
-            "static": 1
-        },
-        "classManipulation": {
-            "name": "classManipulation",
-            "shortname": "classManipulation",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Siren-Core",
-            "namespace": "",
-            "file": "js/jsSrc/functions.js",
-            "line": 86,
-            "description": "Methods related to manipulating classes in the HTML",
-            "static": 1
-        },
-        "styleManipulation": {
-            "name": "styleManipulation",
-            "shortname": "styleManipulation",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Siren-Core",
-            "namespace": "",
-            "file": "js/jsSrc/functions.js",
-            "line": 111,
-            "description": "Methods related to manipulating style manipulation",
-            "static": 1
-        },
-        "assyncronous": {
-            "name": "assyncronous",
-            "shortname": "assyncronous",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Siren-Core",
-            "namespace": "",
-            "file": "js/jsSrc/functions.js",
-            "line": 131,
-            "description": "Methods related to assyncronous calls",
-            "static": 1
-        },
         "navigationUI": {
             "name": "navigationUI",
             "shortname": "navigationUI",
@@ -147,27 +55,13 @@
             "line": 6,
             "description": "Related to navigation.",
             "static": 1
-        },
-        "callFunctions": {
-            "name": "callFunctions",
-            "shortname": "callFunctions",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Global",
-            "namespace": "",
-            "file": "js/jsSrc/global.js",
-            "line": 38,
-            "static": 1
         }
     },
     "classitems": [
         {
             "file": "js/jsSrc/libs/TweenMax.js",
             "line": 2215,
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -205,7 +99,7 @@
                 "description": "The current property value",
                 "type": "?string"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -243,7 +137,7 @@
                 "description": "value in pixels",
                 "type": "Number"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -271,7 +165,7 @@
                 "description": "Dimension (in pixels)",
                 "type": "Number"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -294,7 +188,7 @@
                 "description": "Amount of change between the beginning and ending values (relative values that have a \"+=\" or \"-=\" are recognized)",
                 "type": "Number"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -317,7 +211,7 @@
                 "description": "Parsed value",
                 "type": "Number"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -350,7 +244,7 @@
                 "description": "parsed angle in radians",
                 "type": "Number"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -368,7 +262,7 @@
                 "description": "An array containing red, green, and blue (and optionally alpha) in that order.",
                 "type": "Array.<number>"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -396,7 +290,7 @@
                 "description": "formatter function",
                 "type": "Function"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -414,7 +308,7 @@
                 "description": "a formatter function",
                 "type": "Function"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -448,7 +342,7 @@
                     "type": "Boolean="
                 }
             ],
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -490,7 +384,7 @@
             "return": {
                 "description": "An object containing the following properties: proxy, end, firstMPT, and pt (see above for descriptions)"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -553,7 +447,7 @@
                     "type": "String="
                 }
             ],
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -615,7 +509,7 @@
                 "description": "The first CSSPropTween in the linked list which includes the new one(s) added by the parseComplex() call.",
                 "type": "CSSPropTween"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -657,7 +551,7 @@
                 "description": "returns itself so that multiple methods can be chained together.",
                 "type": "CSSPropTween"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -675,7 +569,7 @@
                     "type": "Object="
                 }
             ],
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -717,7 +611,7 @@
                 "description": "First CSSPropTween in the linked list",
                 "type": "CSSPropTween="
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -764,7 +658,7 @@
                 "description": "The first CSSPropTween in the linked list which includes the new one(s) added by the parse() call.",
                 "type": "CSSPropTween"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -787,7 +681,7 @@
                     "type": "Number="
                 }
             ],
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -819,7 +713,7 @@
                 "description": "object containing all of the transform properties/values like {x:0, y:0, z:0, scaleX:1...}",
                 "type": "Object"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -833,12 +727,12 @@
                     "type": "Boolean"
                 }
             ],
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
             "line": 4320,
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -865,7 +759,7 @@
                 "description": "An array of TweenLite instances",
                 "type": "Array"
             },
-            "class": "browserSupport"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/libs/TweenMax.js",
@@ -893,113 +787,7 @@
                     "type": "Boolean="
                 }
             ],
-            "class": "browserSupport"
-        },
-        {
-            "file": "js/jsSrc/functions.js",
-            "line": 14,
-            "description": "Test if a css selector can be used",
-            "itemtype": "method",
-            "name": "upportsSelector",
-            "params": [
-                {
-                    "name": "selector",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "class": "browserSupport",
-            "module": "Siren-Core"
-        },
-        {
-            "file": "js/jsSrc/functions.js",
-            "line": 55,
-            "description": "Checks if touch device",
-            "itemtype": "method",
-            "name": "is_touch_device",
-            "params": [
-                {
-                    "name": "url",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "class": "browserSupport",
-            "module": "Siren-Core"
-        },
-        {
-            "file": "js/jsSrc/functions.js",
-            "line": 65,
-            "description": "Polyfill for querySectorAll",
-            "itemtype": "method",
-            "name": "querySelectorAll",
-            "params": [
-                {
-                    "name": "seclector",
-                    "description": "",
-                    "type": "Object"
-                }
-            ],
-            "class": "browserSupport",
-            "module": "Siren-Core"
-        },
-        {
-            "file": "js/jsSrc/functions.js",
-            "line": 93,
-            "description": "Used to add a class \"active\" to triggers and related targets. ie8+",
-            "itemtype": "method",
-            "name": "activeState",
-            "params": [
-                {
-                    "name": "trigger",
-                    "description": "The name of the trigger",
-                    "type": "String"
-                }
-            ],
-            "class": "classManipulation",
-            "module": "Siren-Core"
-        },
-        {
-            "file": "js/jsSrc/functions.js",
-            "line": 117,
-            "description": "Used to remove an inline propert",
-            "itemtype": "method",
-            "name": "removeStyle",
-            "params": [
-                {
-                    "name": "elem",
-                    "description": "",
-                    "type": "Object"
-                },
-                {
-                    "name": "style",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "class": "styleManipulation",
-            "module": "Siren-Core"
-        },
-        {
-            "file": "js/jsSrc/functions.js",
-            "line": 137,
-            "description": "Used to assyncronously load a javascript file. Based on article by Chris Lu (https://chris.lu/article/read/506de698268c420f0d000004)",
-            "itemtype": "method",
-            "name": "loadScript",
-            "params": [
-                {
-                    "name": "src",
-                    "description": "The path to the file from target HTML file",
-                    "type": "String"
-                },
-                {
-                    "name": "callback",
-                    "description": "",
-                    "type": "Function"
-                }
-            ],
-            "class": "assyncronous",
-            "module": "Siren-Core"
+            "class": "navigationUI"
         },
         {
             "file": "js/jsSrc/global.js",
@@ -1020,29 +808,6 @@
                 }
             ],
             "class": "navigationUI",
-            "module": "Global"
-        },
-        {
-            "file": "js/jsSrc/global.js",
-            "line": 43,
-            "itemtype": "method",
-            "name": "CallsOnLoad",
-            "class": "callFunctions",
-            "module": "Global"
-        },
-        {
-            "file": "js/jsSrc/global.js",
-            "line": 53,
-            "itemtype": "method",
-            "name": "CallsOnResize",
-            "params": [
-                {
-                    "name": "selector",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "class": "callFunctions",
             "module": "Global"
         }
     ],

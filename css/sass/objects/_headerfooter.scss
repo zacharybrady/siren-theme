@@ -27,7 +27,7 @@ File Notes:
 }
 
 //Site Title
-.title_logo{
+.title{
 	margin: 0;
 }
 
@@ -38,19 +38,24 @@ File Notes:
   #Navigation
 \*-------------------------*/
 
-.siteNav{
+.navPrimary{
 	max-height: 0px;
   	margin: 0;
   	padding: 0;
   	overflow: hidden;
 	@include transition(.5s);
 
-	  &.active{
+	&.active{
 	  	max-height: 999px;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
 	}
 }
 
-.menu-item{
+.page_item{
 	list-style: none;
 
 	a{
@@ -64,9 +69,9 @@ File Notes:
 	}
 }
 
-.siteNav_button{
-	color: $color1;
-	background: $color2;
+.navPrimary_button{
+	color: $color2;
+	background: $color3;
 	width: 100%;
 	margin: 10px 0 0;
 	padding: 10px 0;

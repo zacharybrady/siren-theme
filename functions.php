@@ -13,7 +13,7 @@
  *
  * @package WordPress
  * @subpackage Siren
- * @version 3.0
+ * @version 3.5
  */
 
 
@@ -33,22 +33,15 @@
  * @return void
  */
 function siren_setup() {
-	/*
-	 * Makes Siren available for translation.
-	 *
-	 * Translations can be added to the /languages/ directory.
-	 * If you're building a theme based on Twenty Thirteen, use a find and
-	 * replace to change 'siren' to the name of your theme in all
-	 * template files.
-	 */
-	load_theme_textdomain( 'siren', get_template_directory() . '/languages' );
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
 
 	// Switches default core markup for search form, comment form, and comments
 	// to output valid HTML5.
-	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
+	add_theme_support( 'html5', array(
+		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
+	) );
 
 	/*
 	 * This theme supports all available post formats by default.
@@ -60,52 +53,32 @@ function siren_setup() {
 	// This theme uses wp_nav_menu() in one location (more can be added).
 	register_nav_menu( 'primary', __( 'Navigation Menu', 'siren' ) );
 
+
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
 	 * "standard" posts and pages.
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 604, 270, false );
-	add_image_size( 'square', 200, 200, true );
-	add_image_size( 'medium', 600, 400, false );
-	add_image_size( 'large', 1200, 800, false );
+	add_image_size( 'small', 450, 450, false );
+	add_image_size( 'medium', 800, 800, false );
+	add_image_size( 'large', 1200, 1200, false );
 	
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 
-
-	//Load Developer Functions
-	require_once 'functions/developer-functions.php';
 }
 add_action( 'after_setup_theme', 'siren_setup' );
 
 
 
-/**
- * Upload files related to custom post types, meta data, and custom taxonomies.
- *
- *
- * @since Siren 3.0
- *
- * @return false
- */
-function siren_custom_architecture() {
-	
-
-/*CUSTOM POST TYPES AND META DATA*/
-//require_once('functions/post_types/custom-post-sample.php');
-
-
-}
-add_filter( 'after_setup_theme', 'siren_custom_architecture' );
 
 
 /**
  * Injects everything for Script and Styles into the header.
  * Preferred to enqueue since I can inline certain styles and elements
  *
- * @since Siren 3.0
+ * @since Siren 3.5
  *
  * @return void
  */
@@ -113,37 +86,153 @@ add_filter( 'after_setup_theme', 'siren_custom_architecture' );
 function inline_head() {
 ?>
 
-	<meta name="fulljs"  content="<?php echo get_bloginfo('template_directory'); ?>/js/global.min.js">
-
-	<script>
-	    <?php require_once('js/enhance.js'); ?>
-	</script>
-
 	<!--[if lt IE 9]>
 	    <script>
 	        <?php require_once(  'js/polyfills/html5.js'); ?>
+			document.createElement( "picture" );
 	    </script>
     <![endif]-->
 
-    <style>
-        <?php require_once( 'style.css'); ?>
-    </style>
+<?php if(isset($_COOKIE['fullCSS'])) { //If cookie is set load stylesheet normally ?>
+	
+	<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/style.css" type="text/css" data-test />
 
-    <!--[if (gt IE 6) & (lte IE 8)]>
-		<link rel="stylesheet" href="css/enhanced-ie.css" type="text/css" />
-	<![endif]-->
+<?php } else{
 
-	<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/enhanced.css" type="text/css" media="only all" />
+	//Else servce critical CSS and use loadCSS
+	echo '<script>';
+		//Asyncronous Load CSS
+		require_once('js/loadcss.js');
+	echo '</script>';
 
-	<!--[if (gt IE 6) & (lte IE 8)]>
+	//Critical CSS is Served based on major template groupings
+	echo '<style>';
+
+	if(is_front_page() ) { //Home page
+		require_once(  'css/critical/critical-home.css');
+	}
+	else if(is_home() || is_archive() || is_category() || is_tag() || is_search()) { //Blog Archive
+		require_once(  'css/critical/critical-archives.css');
+	}
+	else if(is_single()) { //Single post
+		require_once(  'css/critical/critical-post.css');
+	}
+	else {
+		require_once(  'css/critical/critical-page.css');
+	}
+
+	echo '</style>';
+
+?>
+
+	<script>
+		//Async CSS
+	    loadCSS( "<?php bloginfo( 'template_url' ); ?>/style.css" );
+	    //Set Cookie
+	    cookie( 'fullCSS', "true", 7 );
+	</script>
+	
+<?php } ?>
+
+	<script>
+		// JS Enhancment and Async Loading
+		<?php require_once('js/loadjs.js'); ?>
+		//Test only supports browsers that are IE8 and newer
+		if(typeof(document.querySelectorAll) != 'undefined'){
+	    	loadJS( "<?php echo get_bloginfo('template_directory'); ?>/js/global.min.js" );
+	    }
+
+    </script>
+
+	<!--[if IE 8]>
 	    <script>
-	        <?php require_once( 'js/polyfills/respond.js'); ?>
+	    	<script src="<?php bloginfo( 'template_url' ); ?>/js/polyfills/respond.js"></script>
+	        <link rel="stylesheet" href="css/ie8.css" type="text/css" />
 	    </script>
     <![endif]-->
 
 <?php
 }
 add_action( 'wp_head', 'inline_head', 0 );
+
+
+
+
+
+
+/**
+ * Alters Wordpress generated images to work with the Lazysizes javascript framework. Based on the wp-tevko-responsive-images plugin (https://github.com/tevko/wp-tevko-responsive-images)
+ * Edit image names and sizes as needed.
+ *
+ *
+ * @since Siren 3.5
+ *
+ * @return false
+ */
+
+
+function responsive_insert_image($html, $id, $caption, $title, $align, $url) {
+  return
+        '<img data-sizes="auto" src="' . wp_get_attachment_image_src( $id, 'small' )[0] . '" data-srcset="' . wp_get_attachment_image_src( $id, 'small' )[0] . ' 450w, ' . wp_get_attachment_image_src( $id, 'medium' )[0] . ' 800w, ' . wp_get_attachment_image_src( $id, 'large' )[0] . ' 1200w" class=" lazyload" >';
+}
+add_filter('image_send_to_editor', 'responsive_insert_image', 10, 9);
+
+
+
+
+
+/**
+ * Alters the output of oEmbed shortcodes to include a wrapper for 
+ *
+ *
+ * @since Siren 3.5
+ *
+ * @return false
+ */
+
+function my_embed_oembed_html($html, $url, $attr, $post_id) {
+	$html = str_replace("<iframe", '<iframe class="lazyload" ', $html);
+	return '<div class="ombed">' . $html . '</div>';
+}
+add_filter('embed_oembed_html', 'my_embed_oembed_html', 99, 4);
+
+
+
+
+
+
+/**
+ * Changes length of the post excerpt
+ *
+ * @since Siren 3.5
+ *
+ * @return void
+ */
+
+function new_excerpt_length($length) {
+	return 15;
+}
+add_filter('excerpt_length', 'new_excerpt_length');
+
+
+
+
+/**
+ * Controls the trailing symbol for excerpts
+ *
+ * @since Siren 3.5
+ *
+ * @return void
+ */
+
+function new_excerpt_more( $more ) {
+	return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
+
+
 
 /**
  * Registers two widget areas; more can be added.
@@ -152,6 +241,7 @@ add_action( 'wp_head', 'inline_head', 0 );
  *
  * @return void
  */
+
 function siren_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Main Widget Area', 'siren' ),
@@ -174,6 +264,30 @@ function siren_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'siren_widgets_init' );
+
+
+
+
+
+/**
+ * Removes Wordpress logo from login views
+ *
+ * @since Siren 3.5
+ *
+ * @return void
+ */
+
+function my_login_logo() { ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+            display: none;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+
+
 
 
 
@@ -231,6 +345,10 @@ endif;
 
 
 
+
+
+
+
 if ( ! function_exists( 'siren_page_nav' ) ) :
 /**
  * Displays navigation to next/previous post when applicable.
@@ -259,6 +377,8 @@ function siren_post_nav() {
 	<?php
 }
 endif;
+
+
 
 
 
@@ -336,61 +456,6 @@ function siren_post_date( $echo = true ) {
 endif;
 
 
-if ( ! function_exists( 'siren_the_attached_image' ) ) :
-/**
- * Prints the attached image with a link to the next attached image.
- *
- * @since Siren 3.0
- *
- * @return void
- */
-function siren_the_attached_image() {
-	$post                = get_post();
-	$attachment_size     = apply_filters( 'siren_attachment_size', array( 724, 724 ) );
-	$next_attachment_url = wp_get_attachment_url();
-
-	/**
-	 * Grab the IDs of all the image attachments in a gallery so we can get the URL
-	 * of the next adjacent image in a gallery, or the first image (if we're
-	 * looking at the last image in a gallery), or, in a gallery of one, just the
-	 * link to that image file.
-	 */
-	$attachment_ids = get_posts( array(
-		'post_parent'    => $post->post_parent,
-		'fields'         => 'ids',
-		'numberposts'    => -1,
-		'post_status'    => 'inherit',
-		'post_type'      => 'attachment',
-		'post_mime_type' => 'image',
-		'order'          => 'ASC',
-		'orderby'        => 'menu_order ID'
-	) );
-
-	// If there is more than 1 attachment in a gallery...
-	if ( count( $attachment_ids ) > 1 ) {
-		foreach ( $attachment_ids as $attachment_id ) {
-			if ( $attachment_id == $post->ID ) {
-				$next_id = current( $attachment_ids );
-				break;
-			}
-		}
-
-		// get the URL of the next image attachment...
-		if ( $next_id )
-			$next_attachment_url = get_attachment_link( $next_id );
-
-		// or get the URL of the first image attachment.
-		else
-			$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
-	}
-
-	printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
-		esc_url( $next_attachment_url ),
-		the_title_attribute( array( 'echo' => false ) ),
-		wp_get_attachment_image( $post->ID, $attachment_size )
-	);
-}
-endif;
 
 
 
@@ -415,69 +480,6 @@ function siren_get_link_url() {
 
 
 
-/**
- * Extends the default WordPress body classes.
- *
- * Adds body classes to denote:
- * 1. Single or multiple authors.
- * 2. Active widgets in the sidebar to change the layout and spacing.
- * 3. When avatars are disabled in discussion settings.
- *
- * @since Siren 3.0
- *
- * @param array $classes A list of existing body class values.
- * @return array The filtered body class list.
- */
-function siren_body_class( $classes ) {
-	if ( ! is_multi_author() )
-		$classes[] = 'single-author';
-
-	if ( is_active_sidebar( 'sidebar-2' ) && ! is_attachment() && ! is_404() )
-		$classes[] = 'sidebar';
-
-	if ( ! get_option( 'show_avatars' ) )
-		$classes[] = 'no-avatars';
-
-	return $classes;
-}
-add_filter( 'body_class', 'siren_body_class' );
-
-
-
-if ( ! function_exists( 'get_featured_posts' ) ) :
-/**
- * Getter function for Featured Content Plugin.
- *
- * @since Siren 3.0
- *
- * @return array An array of WP_Post objects.
- */
-function get_featured_posts() {
-	/**
-	 * Filter the featured posts to return in Twenty Fourteen.
-	 *
-	 * @since Siren 3.0
-	 *
-	 * @param array|bool $posts Array of featured posts, otherwise false.
-	 */
-	return apply_filters( 'twentyfourteen_get_featured_posts', array() );
-}
-endif;
-
-
-
-if ( ! function_exists( 'has_featured_posts' ) ) :
-/**
- * A helper conditional function that returns a boolean value.
- *
- * @since Siren 3.0
- *
- * @return bool Whether there are featured posts.
- */
-function has_featured_posts() {
-	return ! is_paged() && (bool) get_featured_posts();
-}
-endif;
 
 
 

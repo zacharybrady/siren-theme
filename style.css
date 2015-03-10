@@ -1,357 +1,676 @@
-/********
+/*!
+Theme Name: Siren 2014
+Theme URI: http://suits-sandals.com
+Description: The work horse framework for Suits & Sandals
+Author: suits&sandals
+Author URI: http://suits-sandals.com
+Version: 3.5
+Tags: Boilerplate
 
-Siren Framework v3.3
+License:
+License URI:
 
-File Name: Base Styles
+*/
 
-File Purpose: For the basic/safe styles
-
-File Notes: 
-	- This file is to be called seperate to be safe for older browsers and devices
-
-
-*********/
-/*-------------------------*\
-  #Mixins-Variables
-\*-------------------------*/
-/********
-
-Siren Framework v3.3
-
-File Name: Mixins
-
-File Purpose: This file contains mixins
-
-File Notes: 
-  - Yeah yeah, I know. I took a lot of these from Chris Coyier
-
-*********/
-/*-------------------------*\
-  #Cross-Browser
-\*-------------------------*/
-/*-------------------------*\
-  #Layout
-\*-------------------------*/
-/*-------------------------*\
-  #Typographic
-\*-------------------------*/
-/*-------------------------*\
-  #Skin
-\*-------------------------*/
-/********
-
-Siren Framework v3.3
-
-File Name: Variables Needed for the Safe View
-
-File Purpose: For the basic/safe styles
-
-File Notes: 
-
-
-*********/
-/*-------------------------*\
-  #Colors
-\*-------------------------*/
-/*-------------------------*\
-  #Fonts
-\*-------------------------*/
 html {
-  font-family: "proxima-nova", "Arial", sans-serif;
-  font-style: normal;
-  font-weight: 400;
+	font-family: "proxima-nova", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: 400;
 }
 
-h1, h2, h3, h4 {
-  font-family: "proxima-nova", "Arial", sans-serif;
-  font-style: normal;
-  font-weight: 700;
+h1,
+h2,
+h3,
+h4 {
+	font-family: "proxima-nova", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: 700;
 }
 
-/*-------------------------*\
-  #Core
-\*-------------------------*/
-/********
-
-Siren Framework v3.3
-
-File Name: Core Styles
-
-File Purpose: Basic styling served to all browsers
-
-File Notes: 
-  - Based on: normalize.css v3.0.1 | MIT License | git.io/normalize
-
-*********/
-/*-------------------------*\
-  #Document-Level
-\*-------------------------*/
 html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
 body {
-  margin: 1em;
+	color: #000;
+	margin: 1em;
 }
 
-/*-------------------------*\
-  #HTML5
-\*-------------------------*/
-article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
-  display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+	display: block;
 }
 
-audio, canvas, progress, video {
-  display: inline-block;
-  vertical-align: baseline;
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
 }
 
 audio:not([controls]) {
-  display: none;
-  height: 0;
+	display: none;
+	height: 0;
 }
 
-[hidden], template {
-  display: none;
+[hidden],
+template {
+	display: none;
 }
 
-/*-------------------------*\
-  #Links
-\*-------------------------*/
 a {
-  background: transparent;
-}
-a:hover, a:active {
-  outline: 0;
-}
-a img {
-  border: none;
+	text-decoration: none;
+	color: #afafaf;
 }
 
-/*-------------------------*\
-  #Headers
-\*-------------------------*/
+a:hover,
+a:focus,
+a:active {
+	color: #898989;
+}
+
+a:focus {
+	outline: 0;
+}
+
+a:focus img {
+	border: 1px #afafaf solid;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	text-transform: uppercase;
+}
+
 h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+	font-size: 2.64754em;
+	line-height: 1.13313em;
 }
 
-h1, h2, h3, h4 {
-  text-transform: uppercase;
+h2 {
+	font-size: 1.63627em;
+	line-height: 1.83344em;
 }
 
-/*-------------------------*\
-  #Inline-Content
-\*-------------------------*/
-b, strong {
-  font-weight: bold;
+h3 {
+	font-size: 1.01127em;
+	line-height: 1.48328em;
+	text-transform: none;
+}
+
+h4 {
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+p,
+ol,
+ul,
+li {
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+b,
+strong {
+	font-weight: bold;
 }
 
 abbr[title] {
-  border-bottom: 1px dotted;
+	border-bottom: 1px dotted;
 }
 
-dfn, i {
-  font-style: italic;
+dfn,
+i {
+	font-style: italic;
 }
 
 mark {
-  background: #ff0;
-  color: #000;
+	background: #ff0;
+	color: #000;
 }
 
 small {
-  font-size: 80%;
+	font-size: 80%;
 }
 
-/*-------------------------*\
-  #Grouping-Content
-\*-------------------------*/
 figure {
-  margin: 1em 40px;
+	margin: 1em 40px;
 }
 
 hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 100%;
-  height: 2px;
-  background: black;
-  border: none;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	width: 100%;
+	height: 2px;
+	background: #000;
+	border: none;
 }
 
-code, kbd, pre, samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
 }
 
-q, blockquote {
-  quotes: none;
+q,
+blockquote {
+	quotes: none;
 }
 
 blockquote {
-  font-style: italic;
-  margin: 1em 2em;
+	font-style: italic;
+	margin: 1em 2em;
 }
 
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+	content: "";
+	content: none;
 }
 
-/*-------------------------*\
-  #Forms
-\*-------------------------*/
-button, input, optgroup, select, textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0;
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-button, select {
-  text-transform: none;
-}
-
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-
-button[disabled], html input[disabled] {
-  cursor: default;
-}
-
-button::-moz-focus-inner, input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-input {
-  line-height: normal;
-}
-
-input[type="checkbox"], input[type="radio"] {
-  padding: 0;
-}
-
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-input[type="search"] {
-  -webkit-appearance: textfield;
-}
-
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+td,
+th {
+	padding: 0;
 }
 
 fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+	border: none;
+	margin: 1em 0;
+	clear: both;
+	overflow: hidden;
 }
 
-legend {
-  border: 0;
-  padding: 0;
+input,
+textarea,
+select {
+	color: #000;
+	font-size: 1em;
+	border: 1px #000 solid;
+	padding: 5px;
 }
 
-optgroup {
-  font-weight: bold;
+input {
+	line-height: normal;
 }
 
-/*-------------------------*\
-  #Tables
-\*-------------------------*/
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+input:focus {
+	color: #afafaf;
 }
 
-td, th {
-  padding: 0;
+select {
+	text-transform: none;
 }
 
-/********
+input[type="checkbox"],
+input[type="radio"] {
+	padding: 0;
+}
 
-Siren Framework v3.3
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
 
-File Name: Wordpress Generated Classes
+input[type="search"] {
+	-webkit-appearance: textfield;
+}
 
-File Purpose: Classes created by Wordpress
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
 
-File Notes: 
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+	overflow: visible;
+}
 
-*********/
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input[type="submit"] {
+	text-align: center;
+	cursor: pointer;
+}
+
 .alignnone {
-  margin: 5px 20px 20px 0;
+	margin: 5px 20px 20px 0;
 }
 
 .aligncenter,
 div.aligncenter {
-  margin: 5px auto 5px auto;
-}
-
-.alignright {
-  float: right;
-  margin: 5px 0 20px 20px;
-}
-
-.alignleft {
-  float: left;
-  margin: 5px 20px 20px 0;
+	margin: 5px auto 5px auto;
 }
 
 .wp-caption {
-  background: #fff;
-  border: 1px solid #f0f0f0;
-  padding: 5px 3px 10px;
-  text-align: center;
+	background: #fff;
+	border: 1px solid #f0f0f0;
+	padding: 5px 3px 10px;
+	text-align: center;
 }
 
 .wp-caption.alignnone {
-  margin: 5px 20px 20px 0;
+	margin: 5px 20px 20px 0;
 }
 
 .wp-caption.alignleft {
-  margin: 5px 20px 20px 0;
+	margin: 5px 20px 20px 0;
 }
 
 .wp-caption.alignright {
-  margin: 5px 0 20px 20px;
+	margin: 5px 0 20px 20px;
 }
 
 .wp-caption img {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .wp-caption p.wp-caption-text {
-  line-height: 17px;
-  margin: 0;
-  padding: 0 4px 5px;
+	line-height: 17px;
+	margin: 0;
+	padding: 0 4px 5px;
 }
 
-/*-------------------------*\
-  #Custom
-\*-------------------------*/
-/********
-
-Siren Framework v3.3
-
-File Name: Custom Safe
-
-File Purpose: Custom safe styles not part of the normalization
-
-File Notes: 
-
-
-*********/
-/*-------------------------*\
-  #Fixes-Between-Versions
-\*-------------------------*/
 .nav-main_button {
-  display: none;
+	display: none;
 }
+
+@media only all {
+
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	*behavior: url(../js/polyfills/boxsizing.htc);
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+	*behavior: url(../js/polyfills/boxsizing.htc);
+}
+
+body {
+	margin: 0;
+}
+
+p {
+	max-width: 48em;
+}
+
+img {
+	max-width: 100%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+pre {
+	overflow: auto;
+}
+
+form,
+fieldset {
+	width: 100%;
+}
+
+input,
+textarea,
+select {
+	outline: 0;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+	width: 100%;
+	padding: 5px;
+}
+
+input,
+select {
+	height: 35px;
+}
+
+textarea {
+	height: 100px;
+	resize: none;
+	overflow: auto;
+}
+
+.checkbox_label,
+.checkbox {
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	float: none;
+	display: inline;
+}
+
+input[type="submit"] {
+	background: #745050;
+	width: 100px;
+	-webkit-transition-property: all;
+	-moz-transition-property: all;
+	-o-transition-property: all;
+	transition-property: all;
+	-webkit-transition-duration: 0.7s;
+	-moz-transition-duration: 0.7s;
+	-o-transition-duration: 0.7s;
+	transition-duration: 0.7s;
+}
+
+input[type="submit"]:hover {
+	color: #afafaf;
+}
+
+.aligncenter,
+div.aligncenter,
+.aligncenter {
+	display: block;
+}
+
+.alignright {
+	float: right;
+	margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+	float: left;
+	margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+	float: right;
+	margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+	margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+	float: left;
+	margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption {
+	max-width: 96%;
+}
+
+.wp-caption img {
+	height: auto;
+	width: auto;
+	max-width: 98.5%;
+}
+
+.ombed {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+}
+
+.ombed iframe,
+.ombed object,
+.ombed embed,
+.ombed video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.header {
+	text-align: center;
+	background: #000;
+	color: #fff;
+	margin-bottom: 1.5em;
+	padding: 1em;
+	overflow: hidden;
+}
+
+.title {
+	margin: 0;
+}
+
+.navPrimary {
+	max-height: 0px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+}
+
+.navPrimary.active {
+	max-height: 999px;
+}
+
+.navPrimary ul {
+	margin: 0;
+	padding: 0;
+}
+
+.page_item {
+	list-style: none;
+}
+
+.page_item a {
+	color: #fff;
+	padding: 10px 0;
+	display: block;
+}
+
+.page_item a:hover {
+	color: #745050;
+}
+
+.navPrimary_button {
+	color: #fff;
+	background: #745050;
+	width: 100%;
+	margin: 10px 0 0;
+	padding: 10px 0;
+	display: block;
+}
+
+.footer {
+	text-align: center;
+	background: #000;
+	color: #fff;
+	margin-top: 1.5em;
+	padding: 1em;
+}
+
+.footer_content {
+	max-width: 100%;
+	margin: 0;
+}
+
+.row {
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+}
+
+@media only screen and (min-width: 700px) {
+
+.col-half,
+.col-thrd {
+	padding: 0 0.5em;
+	float: left;
+}
+
+.col-half {
+	width: 50%;
+}
+
+.col-thrd {
+	width: 33.33333%;
+}
+
+.title {
+	float: left;
+}
+
+.navPrimary {
+	margin-top: 3px;
+	max-height: 100%;
+	text-align: right;
+}
+
+.page_item {
+	display: inline;
+	display: inline-block;
+}
+
+.page_item a {
+	padding: 1em;
+}
+
+.navPrimary_button {
+	display: none;
+}
+
+}
+
+@media print {
+
+* {
+	background: transparent !important;
+	color: black !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	filter: none !important;
+	-ms-filter: none !important;
+}
+
+a,
+a:visited {
+	text-decoration: underline;
+}
+
+a[href]:after {
+	content: " (" attr(href) ")";
+}
+
+abbr[title]:after {
+	content: " (" attr(title) ")";
+}
+
+.ir a:after,
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+	content: "";
+}
+
+pre,
+blockquote {
+	border: 1px solid #999;
+	page-break-inside: avoid;
+}
+
+thead {
+	display: table-header-group;
+}
+
+tr,
+img {
+	page-break-inside: avoid;
+}
+
+img {
+	max-width: 100% !important;
+}
+
+p,
+h2,
+h3 {
+	orphans: 3;
+	widows: 3;
+}
+
+h2,
+h3 {
+	page-break-after: avoid;
+}
+
+}
+
