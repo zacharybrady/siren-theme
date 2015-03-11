@@ -1,6 +1,6 @@
 /********
 
-Siren Framework v3.3
+Siren Framework v3.6
 
 File Name: Header and Footer
 
@@ -21,7 +21,7 @@ File Notes:
 	text-align: center;
 	background: $color1;
 	color: $color2;
-	@include trailer;
+	margin-bottom: $baseline;
 	padding: 1em;
 	overflow: hidden;
 }
@@ -90,7 +90,7 @@ File Notes:
 	text-align: center;
 	background: $color1;
 	color: $color2;
-	@include leader;
+	margin-top: $baseline;
 	padding: 1em;
 }
 

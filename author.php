@@ -38,9 +38,6 @@ get_header(); ?>
 				rewind_posts();
 			?>
 
-			<?php if ( get_the_author_meta( 'description' ) ) : ?>
-				<?php get_template_part( 'author-bio' ); ?>
-			<?php endif; ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'content', get_post_format() ); ?>

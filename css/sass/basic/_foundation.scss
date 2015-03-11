@@ -1,6 +1,6 @@
 /********
 
-Siren Framework v3.3
+Siren Framework v3.6
 
 File Name: Core Styles
 
@@ -24,6 +24,7 @@ html {
 
 
 body {
+  font-size: $mobile;
   color: $color1;
   margin: 1em;
 }
@@ -90,23 +91,28 @@ a{
 h1,h2,h3, h4{
   @extend %displayFont;
   text-transform: uppercase;
+  line-height: $line-height;
 }
 
 h1  { 
-  @include adjust-font-size-to(modular-scale(6,$base-size,$ratio));
+  font-size: $xLarge;
 }
 
 h2  { 
-  @include adjust-font-size-to(modular-scale(4,$base-size,$ratio));
+  font-size: $large;
 }
 
 h3   { 
-  @include adjust-font-size-to(modular-scale(2,$base-size,$ratio));
+  font-size: $medium;
   text-transform: none;
 }
 
 h4 {
-  @include adjust-font-size-to(modular-scale(1,$base-size,$ratio));
+  font-size: $halfstep;
+}
+
+h5 {
+  font-size: $body;
 }
 
 
@@ -118,11 +124,11 @@ h4 {
 \*-------------------------*/
 
 p, ol, ul, li{ 
-  @include adjust-font-size-to($primary_size);
+  font-size: $body;
 }
 
 p {
-  @include trailer;
+  margin-bottom: $baseline;
 }
 
 

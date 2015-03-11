@@ -4,7 +4,7 @@ Theme URI: http://suits-sandals.com
 Description: The work horse framework for Suits & Sandals
 Author: suits&sandals
 Author URI: http://suits-sandals.com
-Version: 3.5
+Version: 3.6
 Tags: Boilerplate
 
 License:
@@ -25,10 +25,7 @@ File Notes:
 /*-------------------------*\
   #Mixins-Variables
 \*-------------------------*/
-
-@import "compass/typography/vertical_rhythm";
 @import "compass/css3";
-@import "modular-scale";
 @import "mixins/mixins"; 
 @import "variables/variables"; 
 
@@ -88,6 +85,7 @@ File Notes:
 /*-------------------------*\
   #Responsive
 \*-------------------------*/
+@import "responsive/foundation";
 @import "responsive/layout";
 @import "responsive/headerfooter";
 

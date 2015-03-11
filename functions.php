@@ -13,7 +13,7 @@
  *
  * @package WordPress
  * @subpackage Siren
- * @version 3.5
+ * @version 3.6
  */
 
 
@@ -78,7 +78,7 @@ add_action( 'after_setup_theme', 'siren_setup' );
  * Injects everything for Script and Styles into the header.
  * Preferred to enqueue since I can inline certain styles and elements
  *
- * @since Siren 3.5
+ * @since Siren 3.6
  *
  * @return void
  */
@@ -145,10 +145,9 @@ function inline_head() {
     </script>
 
 	<!--[if IE 8]>
-	    <script>
-	    	<script src="<?php bloginfo( 'template_url' ); ?>/js/polyfills/respond.js"></script>
-	        <link rel="stylesheet" href="css/ie8.css" type="text/css" />
-	    </script>
+	    <script src="<?php echo get_bloginfo('template_directory'); ?>/js/polyfills/respond.js"></script>
+	    <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/ie8.css" type="text/css" />
+	    
     <![endif]-->
 
 <?php
@@ -165,7 +164,7 @@ add_action( 'wp_head', 'inline_head', 0 );
  * Edit image names and sizes as needed.
  *
  *
- * @since Siren 3.5
+ * @since Siren 3.6
  *
  * @return false
  */
@@ -185,7 +184,7 @@ add_filter('image_send_to_editor', 'responsive_insert_image', 10, 9);
  * Alters the output of oEmbed shortcodes to include a wrapper for 
  *
  *
- * @since Siren 3.5
+ * @since Siren 3.6
  *
  * @return false
  */
@@ -204,7 +203,7 @@ add_filter('embed_oembed_html', 'my_embed_oembed_html', 99, 4);
 /**
  * Changes length of the post excerpt
  *
- * @since Siren 3.5
+ * @since Siren 3.6
  *
  * @return void
  */
@@ -220,7 +219,7 @@ add_filter('excerpt_length', 'new_excerpt_length');
 /**
  * Controls the trailing symbol for excerpts
  *
- * @since Siren 3.5
+ * @since Siren 3.6
  *
  * @return void
  */
@@ -272,7 +271,7 @@ add_action( 'widgets_init', 'siren_widgets_init' );
 /**
  * Removes Wordpress logo from login views
  *
- * @since Siren 3.5
+ * @since Siren 3.6
  *
  * @return void
  */
