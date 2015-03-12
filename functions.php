@@ -145,7 +145,9 @@ function inline_head() {
     </script>
 
 	<!--[if IE 8]>
-	    <script src="<?php echo get_bloginfo('template_directory'); ?>/js/polyfills/respond.js"></script>
+	    <script>
+	    	loadJS( "<?php echo get_bloginfo('template_directory'); ?>/js/polyfills/respond.js" );
+	    </script>
 	    <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/ie8.css" type="text/css" />
 	    
     <![endif]-->
