@@ -139,6 +139,19 @@ module.exports = function(grunt) {
       }
     },
 
+    //Browser Syncing
+    browserSync: {
+      dev: {
+          bsFiles: {
+              src : 'style.css'
+          },
+          options: {
+              watchTask: true,
+             proxy: "localhost:8888"
+          }
+      }
+  },
+
     //Javascript documentation
     yuidoc: {
         all: {
@@ -166,6 +179,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
   grunt.loadNpmTasks('grunt-contrib-cssmin'); //CSS Minification
   grunt.loadNpmTasks('grunt-combine-mq'); //Combine Media Queries
+  grunt.loadNpmTasks('grunt-browser-sync'); //Browser syncing
 
   // Default task(s).
   grunt.registerTask('default', ['uglify', 'compass', 'combine_mq', 'jshint','imagemin', 'yuidoc', 'criticalcss']);
