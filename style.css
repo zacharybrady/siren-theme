@@ -4,7 +4,7 @@ Theme URI: http://suits-sandals.com
 Description: The work horse framework for Suits & Sandals
 Author: suits&sandals
 Author URI: http://suits-sandals.com
-Version: 3.6
+Version: 3.7
 Tags: Boilerplate
 
 License:
@@ -332,8 +332,42 @@ div.aligncenter {
 	padding: 0 4px 5px;
 }
 
-.nav-main_button {
-	display: none;
+.header {
+	text-align: center;
+	margin-bottom: 1.5em;
+	padding: 1em;
+}
+
+.title {
+	margin: 0;
+}
+
+.navPrimary ul {
+	margin: 0;
+	padding: 0;
+}
+
+.page_item {
+	list-style: none;
+	margin-top: 1em;
+}
+
+.page_item a {
+	padding: 10px 0;
+}
+
+.footer {
+	text-align: center;
+	margin-top: 1.5em;
+	padding: 1em;
+}
+
+.footer_content {
+	margin: 0;
+}
+
+.h-center {
+	text-align: center;
 }
 
 @media only all {
@@ -514,22 +548,13 @@ a img.aligncenter {
 }
 
 .header {
-	text-align: center;
 	background: #000;
 	color: #fff;
-	margin-bottom: 1.5em;
-	padding: 1em;
 	overflow: hidden;
-}
-
-.title {
-	margin: 0;
 }
 
 .navPrimary {
 	max-height: 0px;
-	margin: 0;
-	padding: 0;
 	overflow: hidden;
 	-webkit-transition: 0.5s;
 	-moz-transition: 0.5s;
@@ -541,18 +566,12 @@ a img.aligncenter {
 	max-height: 999px;
 }
 
-.navPrimary ul {
-	margin: 0;
-	padding: 0;
-}
-
 .page_item {
-	list-style: none;
+	margin: 0;
 }
 
 .page_item a {
 	color: #fff;
-	padding: 10px 0;
 	display: block;
 }
 
@@ -570,19 +589,15 @@ a img.aligncenter {
 }
 
 .footer {
-	text-align: center;
 	background: #000;
 	color: #fff;
-	margin-top: 1.5em;
-	padding: 1em;
 }
 
 .footer_content {
 	max-width: 100%;
-	margin: 0;
 }
 
-.row {
+.l-row {
 	width: 100%;
 	max-width: 1140px;
 	margin: 0 auto;

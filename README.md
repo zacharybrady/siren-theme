@@ -1,7 +1,7 @@
 siren
 ==========
 
-# Siren Theme Version 3.6 #
+# Siren Theme Version 3.7 #
 ## Suits & Sandals Wordpress Theme Base with Siren Framework v2.00 ##
 ### by Zachary Brady ###
 www.suits-sandals.com

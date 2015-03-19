@@ -1,0 +1,82 @@
+/********
+
+Siren Framework v3.7
+
+File Name: Header and Footer Enhanced
+
+File Purpose: Classes for the header and footer elements
+
+File Notes: 
+  - The header is designed to be a hamburger menu for the mobile view
+	- The footer is kept simple by default
+
+*********/
+
+
+/*-------------------------*\
+  #Header
+\*-------------------------*/
+
+.header{
+	background: $color1;
+	color: $color2;
+	overflow: hidden;
+}
+
+
+
+
+/*-------------------------*\
+  #Navigation
+\*-------------------------*/
+
+.navPrimary{
+	max-height: 0px;
+  	overflow: hidden;
+	@include transition(.5s);
+
+	&.active{
+	  	max-height: 999px;
+	}
+}
+
+.page_item{
+
+	margin: 0;
+	
+	a{
+		color: $color2;
+		display: block;
+
+		&:hover{
+			color: $color3;
+		}
+	}
+}
+
+.navPrimary_button{
+	color: $color2;
+	background: $color3;
+	width: 100%;
+	margin: 10px 0 0;
+	padding: 10px 0;
+	display: block;
+}
+
+
+
+
+
+/*-------------------------*\
+  #Footer
+\*-------------------------*/
+
+.footer{
+	background: $color1;
+	color: $color2;
+}
+
+.footer_content{
+	max-width: 100%;
+}
+

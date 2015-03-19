@@ -17,7 +17,7 @@
 			} 
 		?>
 
-	</div>
+	</header>
 
 	<footer class="footer post_footer post-aside_footer">
 		<?php if ( is_single() ) : ?>
