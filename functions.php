@@ -97,13 +97,8 @@ function inline_head() {
 	
 	<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/style.css" type="text/css" data-test />
 
-<?php } else{
-
-	//Else servce critical CSS and use loadCSS
-	echo '<script>';
-		//Asyncronous Load CSS
-		require_once('js/loadcss.js');
-	echo '</script>';
+<?php } else{ //Else servce critical CSS and use loadCSS
+	
 
 	//Critical CSS is Served based on major template groupings
 	echo '<style>';
@@ -122,10 +117,14 @@ function inline_head() {
 	}
 
 	echo '</style>';
-
+?>
+	<script>
+	
+<?php
+		//Asyncronous Load CSS
+		require_once('js/loadcss.js');
 ?>
 
-	<script>
 		//Async CSS
 	    loadCSS( "<?php bloginfo( 'template_url' ); ?>/style.css" );
 	    //Set Cookie
