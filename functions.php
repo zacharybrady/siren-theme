@@ -138,7 +138,9 @@ function inline_head() {
 		<?php require_once('js/loadjs.js'); ?>
 		//Test only supports browsers that are IE8 and newer
 		if(typeof(document.querySelectorAll) != 'undefined'){
-	    	loadJS( "<?php echo get_bloginfo('template_directory'); ?>/js/global.min.js" );
+			window.onload = function(){
+	    		loadJS( "<?php echo get_bloginfo('template_directory'); ?>/js/global.min.js" );
+	    	};
 	    }
 
 	    //Fix for Windows 8
