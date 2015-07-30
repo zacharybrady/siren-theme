@@ -16,18 +16,19 @@ Test if a css selector can be used
 @param widthLimit {int} 
 */
 
-$('.navPrimary_button').click(function(){
+$('.siteNav_button').click(function(){
 
 	if($(this).hasClass('active')){
 
 		$(this).removeClass('active');
-		$('.navPrimary').removeClass('active');
+		$('.siteNav_list').removeClass('active');
 
 	}
 	else {
 
 		$(this).addClass('active');
-		$('.navPrimary').addClass('active');
+		$('.siteNav_list').addClass('active');
 
 	}
+	return false;
 });

@@ -118,16 +118,12 @@ function inline_head() {
 
 	echo '</style>';
 ?>
-	<script>
-	
-<?php
-		//Asyncronous Load CSS
-		require_once('js/loadcss.js');
-?>
 
-		//Async CSS
+
+	<script>
+		<?php require_once('js/loading/loadcss.js'); ?>
 	    loadCSS( "<?php bloginfo( 'template_url' ); ?>/style.css" );
-	    //Set Cookie
+		<?php require_once('js/loading/cookie.js'); ?>
 	    cookie( 'fullCSS', "true", 7 );
 	</script>
 	
@@ -135,12 +131,12 @@ function inline_head() {
 
 	<script>
 		// JS Enhancment and Async Loading
-		<?php require_once('js/loadjs.js'); ?>
+		<?php require_once('js/loading/loadjs.js'); ?>
 		//Test only supports browsers that are IE8 and newer
 		if(typeof(document.querySelectorAll) != 'undefined'){
-			window.onload = function(){
+			document.addEventListener("DOMContentLoaded", function() {
 	    		loadJS( "<?php echo get_bloginfo('template_directory'); ?>/js/global.min.js" );
-	    	};
+	    	});
 	    }
 
 	    //Fix for Windows 8
