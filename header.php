@@ -31,7 +31,11 @@
 	
 </head>
 
+<?php if(isset($_COOKIE['fontloaded-project'])) {  ?>
+<body <?php body_class('font-loaded'); ?>>
+<?php } else {  ?>
 <body <?php body_class(); ?>>
+<?php }   ?>
 	
 <!-- main-header -->
 <header class="header" role="banner">
