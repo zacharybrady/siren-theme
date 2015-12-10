@@ -1,0 +1,137 @@
+/*!
+Theme Name: Siren 2014
+Theme URI: http://suits-sandals.com
+Description: The work horse framework for Suits & Sandals
+Author: suits&sandals
+Author URI: http://suits-sandals.com
+Version: 3.7
+Tags: Boilerplate
+
+License:
+License URI:
+
+*/
+
+/********
+
+File Notes: 
+	- This is built from mobile Up
+	- All the initial style are for mobile views and everything else is brought in through media-queries
+
+
+*********/
+
+@-webkit-viewport{width:device-width;}
+@-moz-viewport{width:device-width;}
+@-ms-viewport{width:device-width;}
+@-o-viewport{width:device-width;}
+@viewport{width:device-width;}
+
+
+/*-------------------------*\
+  #Mixins-Variables
+\*-------------------------*/
+@import "variables/variables"; 
+
+
+
+
+/*-------------------------*\
+  #Base-Basic
+\*-------------------------*/
+@import "base-basic/foundation";
+@import "base-basic/forms";
+@import "base-basic/wordpress";
+
+
+
+
+
+/*-------------------------*\
+  #Objects-Basic
+\*-------------------------*/
+@import "objects-basic/headerfooter";
+
+
+
+
+/*-------------------------*\
+  #Layout-Basic
+\*-------------------------*/
+@import "layout-basic/spacing";
+
+
+
+
+
+
+/*-------------------------*\
+  #Enhanced
+\*-------------------------*/
+@media only all {
+
+	/*-------------------------*\
+	  #Core-Enhanced
+	\*-------------------------*/
+	@import "base-enhanced/foundation"; 
+	@import "base-enhanced/forms";
+	@import "base-enhanced/wordpress";
+
+
+
+
+
+	/*-------------------------*\
+	  #Objects-Enhanced
+	\*-------------------------*/
+	@import "objects-enhanced/headerfooter"; 
+
+
+
+
+
+	/*-------------------------*\
+	  #Layout-Enhanced
+	\*-------------------------*/
+	@import "layout-enhanced/grid";
+	@import "layout-enhanced/spacing";
+	@import "layout-enhanced/positioning";
+
+
+}
+
+
+/*-------------------------*\
+  #Helpers
+\*-------------------------*/
+@import "helpers/typographic";
+
+
+
+
+
+/*-------------------------*\
+  #Responsive-Core
+\*-------------------------*/
+@import "responsive-core/foundation";
+@import "responsive-core/layout";
+
+
+
+
+
+/*-------------------------*\
+  #Responsive-Objects
+\*-------------------------*/
+@import "responsive-objects/headerfooter";
+
+
+
+
+
+/*-------------------------*\
+  #Misc
+\*-------------------------*/
+
+@import "misc/print"; //Print Styles
+

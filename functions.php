@@ -13,7 +13,7 @@
  *
  * @package WordPress
  * @subpackage Siren
- * @version 3.6
+ * @version 3.8
  */
 
 
@@ -93,7 +93,7 @@ function inline_head() {
 	    </script>
     <![endif]-->
 
-<?php if(isset($_COOKIE['fullCSS'])) { //If cookie is set load stylesheet normally ?>
+<?php if(isset($_COOKIE['fullCSS-project'])) { //If cookie is set load stylesheet normally ?>
 	
 	<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/style.css" type="text/css" data-test />
 
@@ -104,16 +104,16 @@ function inline_head() {
 	echo '<style>';
 
 	if(is_front_page() ) { //Home page
-		require_once(  'css/critical/critical-home.css');
+		require_once(  'css/critical/home.css');
 	}
 	else if(is_home() || is_archive() || is_category() || is_tag() || is_search()) { //Blog Archive
-		require_once(  'css/critical/critical-archives.css');
+		require_once(  'css/critical/archives.css');
 	}
 	else if(is_single()) { //Single post
-		require_once(  'css/critical/critical-post.css');
+		require_once(  'css/critical/post.css');
 	}
 	else {
-		require_once(  'css/critical/critical-page.css');
+		require_once(  'css/critical/page.css');
 	}
 
 	echo '</style>';
@@ -124,7 +124,7 @@ function inline_head() {
 		<?php require_once('js/loading/loadcss.js'); ?>
 	    loadCSS( "<?php bloginfo( 'template_url' ); ?>/style.css" );
 		<?php require_once('js/loading/cookie.js'); ?>
-	    cookie( 'fullCSS', "true", 7 );
+	    cookie( 'fullCSS-project', "true", 7 );
 	</script>
 	
 <?php } ?>

@@ -1,7 +1,7 @@
 siren
 ==========
 
-# Siren Theme Version 3.7 #
+# Siren Theme Version 3.8 #
 ## Suits & Sandals Wordpress Theme Base with Siren Framework v2.00 ##
 ### by Zachary Brady ###
 www.suits-sandals.com
@@ -146,7 +146,7 @@ This index is for files and directories in the top level directory. Sub-director
 ## Headline Format ##
 The required headline for the top of SCSS snippets and Markup sections
 
-- Siren Framework v3.6
+- Siren Framework v3.8
 - File Name: {file name}
 - File Purpose: {file purpose}
 - File Notes: {notes for file}

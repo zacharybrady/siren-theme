@@ -5,7 +5,7 @@
  *
  * @package WordPress
  * @subpackage Siren
- * @version 3.0
+ * @version 3.8
  */
 ?>
 	<?php get_sidebar(); ?>
@@ -23,10 +23,10 @@
 
 
 <!-- FONT LOADING -->
-<?php if(isset($_COOKIE['fontloaded'])) { ?>
+<?php if(!isset($_COOKIE['fontloaded-project'])) { ?>
 	<script>
 <?php 	
-		if(isset($_COOKIE['fullCSS'])) { 
+		if(isset($_COOKIE['fullCSS-project'])) { 
 			require_once('js/loading/cookie.js');
 		} 
 
@@ -37,7 +37,7 @@
 		});
 		observer.check().then(function () {
 			document.getElementsByTagName('body')[0].className += " font-loaded";
-		  	cookie( 'fontloaded', "true", 7 );
+		  	cookie( 'fontloaded-project', "true", 7 );
 		});		
 	</script>
 <?php } ?>

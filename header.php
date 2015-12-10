@@ -6,7 +6,7 @@
  *
  * @package WordPress
  * @subpackage Siren
- * @version 3.0
+ * @version 3.8
  */
 ?><!DOCTYPE html>
 <!--[if IE 7]>

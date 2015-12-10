@@ -17,14 +17,14 @@ module.exports = function(grunt) {
         }
       },
       scss: {
-        files: ['css/sass/*.scss','css/sass/*/*.scss'],
-       tasks: ['compass', 'combine_mq', 'criticalcss', 'cssmin'],
+        files: ['css/scss/*.scss','css/scss/*/*.scss'],
+       tasks: ['sass', 'criticalcss', 'postcss'],
         options: {
           spawn: false,
         }
       },
       images: {
-        files: ['images/imagesSrc/*.{png,jpg,gif}'],
+        files: ['images/*.{png,jpg,gif}'],
         tasks: ['imagemin'],
         options: {
           spawn: false,
@@ -34,27 +34,29 @@ module.exports = function(grunt) {
 
      //JS Hinting
     jshint: {
-      all: ['Gruntfile.js', 'js/jsSrc/functions.js', 'js/jsSrc/global.js']
+      all: ['Gruntfile.js', 'js/jsSrc/global.js']
     },
 
     //Uglify for JS
     uglify: {
       dist:{
         files:{
-          'js/global.min.js' : ['js/jsSrc/libs/jquery.js', 'js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/global.js']
+          'js/global.min.js' : ['js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/libs/shoestring.js', 'js/jsSrc/global.js']
 
         }
       }
     },
 
-    //Compass for SCSS
-    compass: {                 
-      dist: { 
-        options: {    
-          config: 'config.rb',       
-          sassDir: 'css/sass',
-          cssDir: 'css',
-          environment: 'development'
+    //SASS
+    sass: {                              
+      dist: {                            
+        options: {                   
+          style: 'expanded',
+          sourcemap: 'none'
+        },
+        files: {                        
+          'style.css': 'css/scss/style.scss',       
+          'css/ie8.css': 'css/scss/ie8.scss'
         }
       }
     },
@@ -68,7 +70,7 @@ module.exports = function(grunt) {
       homePage: {
         options: {
           url: "http://localhost:8888/siren-wordpress/",
-          outputfile: "css/critical/raw/critical-home.css",
+          outputfile: "css/critical/raw/home.css",
           filename: "style.css"
         }
       },
@@ -77,7 +79,7 @@ module.exports = function(grunt) {
       archives: {
         options: {
           url: "http://localhost:8888/siren-wordpress/news/",
-          outputfile: "css/critical/raw/critical-archives.css",
+          outputfile: "css/critical/raw/archives.css",
           filename: "style.css"
         }
       },
@@ -86,7 +88,7 @@ module.exports = function(grunt) {
       post: {
         options: {
           url: "http://localhost:8888/siren-wordpress/news/",
-          outputfile: "css/critical/raw/critical-post.css",
+          outputfile: "css/critical/raw/post.css",
           filename: "style.css"
         }
       },
@@ -95,33 +97,27 @@ module.exports = function(grunt) {
       page: {
         options: {
           url: "http://localhost:8888/siren-wordpress/store/",
-          outputfile: "css/critical/raw/critical-page.css",
+          outputfile: "css/critical/raw/page.css",
           filename: "style.css"
         }
       }
 
     },
 
-    //CSS Min
-    cssmin: {
-      target: {
-        files: [{
-          expand: true,
-          cwd: 'css/critical/raw',
-          src: ['*.css'],
-          dest: 'css/critical'
-        }]
-      }
-    },
-
-    //Combine Media Queries
-    combine_mq: {
+    postcss: {
       options: {
-        beautify: false
+        map: false, // inline sourcemaps
+
+        processors: [
+          require('autoprefixer')({browsers: 'last 4 versions'}),
+          require('css-mqpacker')(),
+          require('cssnano')()
+        ]
       },
-      main: {
-        src: 'style.css',
-        dest: 'style.css'
+      dist: {
+        files: [{
+          src: ['*.css', 'css/*.css', 'css/**/*.css']
+        }]
       }
     },
 
@@ -136,19 +132,6 @@ module.exports = function(grunt) {
         }]
       }
     },
-
-    //Browser Syncing
-    browserSync: {
-      dev: {
-          bsFiles: {
-              src : 'style.css'
-          },
-          options: {
-              watchTask: true,
-             proxy: "localhost:8888"
-          }
-      }
-  },
 
     //Javascript documentation
     yuidoc: {
@@ -170,16 +153,14 @@ module.exports = function(grunt) {
   // Load up pluggins
   grunt.loadNpmTasks('grunt-contrib-watch'); //Update watcher
   grunt.loadNpmTasks('grunt-contrib-uglify'); //Uglify JS
-  grunt.loadNpmTasks('grunt-contrib-compass'); //Compress Compass
   grunt.loadNpmTasks('grunt-contrib-jshint'); //JS Hint
   grunt.loadNpmTasks('grunt-contrib-imagemin'); //Image Optimization
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
   grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
-  grunt.loadNpmTasks('grunt-contrib-cssmin'); //CSS Minification
-  grunt.loadNpmTasks('grunt-combine-mq'); //Combine Media Queries
-  grunt.loadNpmTasks('grunt-browser-sync'); //Browser syncing
+  grunt.loadNpmTasks('grunt-postcss'); //Post CSS
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'compass', 'combine_mq', 'jshint','imagemin', 'yuidoc', 'criticalcss']);
+  grunt.registerTask('default', ['sass', 'criticalcss', 'postcss' ]);
 
 };
