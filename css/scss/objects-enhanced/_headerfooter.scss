@@ -30,19 +30,22 @@ File Notes:
   #Navigation
 \*-------------------------*/
 
-.navPrimary{
-	max-height: 0px;
+.nav {
   	overflow: hidden;
-	@include transition(.5s);
 
-	&.active{
-	  	max-height: 999px;
+	.navigation-enabled & {
+		max-height: 0px;
+		transition: 0.5s all;
+
+	  	&.s-active{
+	  		max-height: 500px;
+	  	}
+
 	}
-}
 
-.page_item{
-
-	margin: 0;
+	li {
+		margin: 0;
+	}
 	
 	a{
 		color: $color2;
@@ -52,16 +55,18 @@ File Notes:
 			color: $color3;
 		}
 	}
+
+	&_btn{
+		color: $color2;
+		background: $color3;
+		width: 100%;
+		margin: 10px 0 0;
+		padding: 10px 0;
+		display: block;
+	}
+
 }
 
-.navPrimary_button{
-	color: $color2;
-	background: $color3;
-	width: 100%;
-	margin: 10px 0 0;
-	padding: 10px 0;
-	display: block;
-}
 
 
 
@@ -74,9 +79,10 @@ File Notes:
 .footer{
 	background: $color1;
 	color: $color2;
+
+	&_content{
+		max-width: 100%;
+	}
 }
 
-.footer_content{
-	max-width: 100%;
-}
 

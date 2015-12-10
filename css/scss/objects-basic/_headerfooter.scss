@@ -35,22 +35,24 @@ File Notes:
   #Navigation
 \*-------------------------*/
 
-.navPrimary{
+.nav{
 
-	ul {
+	&_list {
 		margin: 0;
 		padding: 0;
 	}
-}
 
-.page_item{
-	list-style: none;
-	margin-top: 1em;
+	li {
+		list-style: none;
+		margin-top: 1em;	
+	}
 
 	a{
 		padding: 10px 0;
 	}
 }
+
+
 
 
 
@@ -63,9 +65,9 @@ File Notes:
 	text-align: center;
 	margin-top: $baseline;
 	padding: 1em;
-}
 
-.footer_content{
-	margin: 0;
+	&_content{
+		margin: 0;
+	}
 }
 

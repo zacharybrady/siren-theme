@@ -45,10 +45,9 @@
 		</h1>
 	</div>
 	
-	<div class="navPrimary_container">
-		<a href="#navMenu" class="navPrimary_button" id="navBtn" >MENU</a>	
-		<nav class="navPrimary" role="navigation">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'menu_id' => 'navMenu') ); ?>
+	<div class="nav_container">
+		<nav class="nav" role="navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav_list', 'menu_id' => 'navMenu') ); ?>
 		</nav>
 	</div>
 

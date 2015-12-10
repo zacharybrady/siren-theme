@@ -69,7 +69,7 @@ module.exports = function(grunt) {
       //Home
       homePage: {
         options: {
-          url: "http://localhost:8888/siren-wordpress/",
+          url: "http://siren-wordpress.dev/",
           outputfile: "css/critical/raw/home.css",
           filename: "style.css"
         }
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
       //Archives - index, taxonomies, archives, etc.
       archives: {
         options: {
-          url: "http://localhost:8888/siren-wordpress/news/",
+          url: "http://siren-wordpress.dev/news/",
           outputfile: "css/critical/raw/archives.css",
           filename: "style.css"
         }
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
       //Post
       post: {
         options: {
-          url: "http://localhost:8888/siren-wordpress/news/",
+          url: "http://siren-wordpress.dev/test-post/",
           outputfile: "css/critical/raw/post.css",
           filename: "style.css"
         }
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
       //Page
       page: {
         options: {
-          url: "http://localhost:8888/siren-wordpress/store/",
+          url: "http://siren-wordpress.dev/test-page/",
           outputfile: "css/critical/raw/page.css",
           filename: "style.css"
         }

@@ -30,22 +30,23 @@ File Notes:
 	  #Navigation
 	\*-------------------------*/
 
-	.navPrimary{
+	.nav{
 		margin-top: 3px;
 		max-height: 100%;
 		text-align: right;
-	}
 
-	.page_item{
-		@include simple-inline-block;	
+		li {
+			display: inline-block;
+		}
 
 		a{
 			padding: 1em;
 		}
+
+		&_btn {
+			display: none;
+		}
 	}
 
-	.navPrimary_button{
-		display: none;
-	}
 
 }
