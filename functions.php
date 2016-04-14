@@ -87,8 +87,8 @@ function inline_head() {
 ?>
 
 	<!--[if lt IE 9]>
+		<script src="<?php bloginfo( 'template_url' ); ?>/js/polyfills/html5.js"></script>
 	    <script>
-	        <?php require_once(  'js/polyfills/html5.js'); ?>
 			document.createElement( "picture" );
 	    </script>
     <![endif]-->
@@ -295,6 +295,28 @@ function my_login_logo() { ?>
     </style>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+
+
+
+
+/**
+ * Fixes WP_Title on Homepage
+ *
+ * @since Siren 3.6
+ *
+ * @return void
+ */
+
+add_filter( 'wp_title', 'baw_hack_wp_title_for_home' );
+function baw_hack_wp_title_for_home( $title )
+{
+  if( empty( $title ) && ( is_home() || is_front_page() ) ) {
+    return __( 'Home', 'theme_domain' ) . ' | ' . get_bloginfo( 'description' );
+  }
+  return $title;
+}
+
 
 
 
@@ -529,3 +551,25 @@ function get_the_attached_images() {
 
 }
 endif;
+
+function dequeue_script() {
+   if( !is_admin() && !is_page_template( 'page_templates/checkout.php' )){
+		wp_deregister_script('jquery');
+		wp_enqueue_script('jquery');
+	}
+}
+add_action( 'wp_print_scripts', 'dequeue_script', 100 );
+
+
+/* Options Page */
+if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title'    => 'Global Content',
+        'menu_title'    => 'Global Content',
+        'menu_slug'     => 'global-content',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+   
+}

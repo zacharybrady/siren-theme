@@ -26,6 +26,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="icon" type="image/x-icon" href="<?php bloginfo( 'template_url' ); ?>/favicon.ico" />
 
 	<?php wp_head(); ?>
 	
