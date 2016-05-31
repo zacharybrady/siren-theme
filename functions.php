@@ -171,27 +171,6 @@ add_action( 'wp_head', 'inline_head', 0 );
 
 
 /**
- * Alters Wordpress generated images to work with the Lazysizes javascript framework. Based on the wp-tevko-responsive-images plugin (https://github.com/tevko/wp-tevko-responsive-images)
- * Edit image names and sizes as needed.
- *
- *
- * @since Siren 3.6
- *
- * @return false
- */
-
-
-function responsive_insert_image($html, $id, $caption, $title, $align, $url) {
-  return
-        '<img data-sizes="auto" src="' . wp_get_attachment_image_src( $id, 'small' )[0] . '" data-srcset="' . wp_get_attachment_image_src( $id, 'small' )[0] . ' 450w, ' . wp_get_attachment_image_src( $id, 'medium' )[0] . ' 800w, ' . wp_get_attachment_image_src( $id, 'large' )[0] . ' 1200w" class=" lazyload" >';
-}
-add_filter('image_send_to_editor', 'responsive_insert_image', 10, 9);
-
-
-
-
-
-/**
  * Alters the output of oEmbed shortcodes to include a wrapper for 
  *
  *
