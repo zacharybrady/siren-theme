@@ -59,9 +59,10 @@ function siren_setup() {
 	 * "standard" posts and pages.
 	 */
 	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'small', 450, 450, false );
-	add_image_size( 'medium', 800, 800, false );
-	add_image_size( 'large', 1200, 1200, false );
+	add_image_size( 'st-small', 300, 300, false );
+	add_image_size( 'st-medium', 600, 600, false );
+	add_image_size( 'st-large', 900, 900, false );
+	add_image_size( 'st-xlarge', 1200, 1200, false );
 	
 
 	// This theme uses its own gallery styles.
@@ -552,3 +553,22 @@ if( function_exists('acf_add_options_page') ) {
     ));
    
 }
+
+
+
+
+/**
+ * Alters Wordpress generated images to work with the Lazysizes javascript framework. Based on the wp-tevko-responsive-images plugin (https://github.com/tevko/wp-tevko-responsive-images)
+ * Edit image names and sizes as needed.
+ *
+ *
+ * @since Siren 3.6
+ *
+ * @return false
+ */
+function responsive_insert_image($html, $id, $caption, $title, $align, $url) {
+  return
+        '<img data-sizes="auto" src="' . wp_get_attachment_image_src( $id, 'st-small' )[0] . '" data-srcset="' . wp_get_attachment_image_src( $id, 'st-small' )[0] . ' 300w, ' . wp_get_attachment_image_src( $id, 'st-medium' )[0] . ' 600w, ' . wp_get_attachment_image_src( $id, 'st-large' )[0] . ' 900w" class=" lazyload" >';
+}
+add_filter('image_send_to_editor', 'responsive_insert_image', 10, 9);
+add_filter( 'post_thumbnail_html', 'responsive_insert_image', 10 );
